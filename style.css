@@ -1,0 +1,13 @@
+img {
+    border-radius: 3px;
+}
+.hover-effect:hover {
+    opacity: 0.5;
+}
+img:first-of-type {
+    filter: grayscale(100%);
+}
+.menu {
+    position: relative;
+    z-index: 1000;
+}
