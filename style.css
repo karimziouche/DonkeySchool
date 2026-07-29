@@ -1,0 +1,25 @@
+img {
+    border-radius: 3px;
+}
+.hover-effect:hover {
+    opacity: 0.5;
+}
+img:first-of-type {
+    filter: grayscale(100%);
+}
+.menu {
+    position: relative;
+    z-index: 1000;
+}
+/* Styles mobiles par défaut */
+body {
+    background-color: #222;
+    color: white;
+}
+/* Desktop */
+@media screen and (min-width: 600px) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
