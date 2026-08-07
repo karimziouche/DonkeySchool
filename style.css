@@ -8,13 +8,79 @@ img:first-of-type {
     filter: grayscale(100%);
 }
 .menu {
-    position: relative;
-    z-index: 1000;
+    display: block;
+}
+/* Cache la checkbox */
+#menu-toggle {
+    display: none;
+}
+/* Icone burger */
+.burger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+/* Cache le menu */
+.menu ul {
+    display: none;
+    list-style: none;
+    padding: 10px 0 0 0;
+    margin: 0;
+}
+#menu-toggle:checked + .burger + ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 /* Styles mobiles par défaut */
 body {
     background-color: #222;
     color: white;
+}
+/* Desktop */
+@media screen and (min-width: 600px) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+main section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+h2 {
+    font-size: 40px; 
+    font-weight: bold;
+}
+p {
+    font-size: 22px;
+    line-height: 1.5;
+}
+section {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+section p {
+    text-align: center;
+    max-width: 600px;
 }
 /* Desktop */
 @media screen and (min-width: 600px) {
