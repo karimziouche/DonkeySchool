@@ -1,48 +1,25 @@
-<?php 
-require_once '_connec.php';
+<?php
 
-$pdo = new \PDO(DSN, USER, PASS);
+require_once 'bicycle.php';
+$bike = new Bicycle('bleu');
+$bike->currentSpeed = 0;
+var_dump($bike);
+echo $bike->forward();
+echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h ' . '<br>';
+echo $bike->brake();
+echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h' . '<br>';
+echo $bike->brake();
+echo "<br>";
+echo "<br>";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+$rockrider = new Bicycle('yellow');
 
-    $query = "INSERT INTO friend (firstname, lastname)
-              VALUES (:firstname, :lastname)";
+$tornado = new Bicycle('black');
+$tornado->forward();
 
-    $statement = $pdo->prepare($query);
-
-    $statement->execute ([
-        'firstname' => $firstname,
-        'lastname' => $lastname
-    ]);
-}
-
-$query = "SELECT * FROM friend";
-$statement = $pdo->query($query);
-$friends = $statement->fetchAll();
-?>
-
-<html>
-<body>
-
-<h1>Mes amis</h1>
-<ul>
-    <?php foreach ($friends as $friend): ?>
-        <li>
-            <?= $friend['firstname'] ?> <?=  $friend['lastname'] ?>
-        </li>
-    <?php endforeach; ?>
-</ul>
-
-    <form method="POST">
-        <label for="firstname">Prénom :</label>
-        <input type="text" id="firstname" name="firstname" required>
-
-        <label for="lastname">Nom : </label>
-        <input type="text" id="lastname" name="lastname" required>
-
-        <button type="submit">Ajouter</button>
-    </form>
-</body>
-</html>
+$car = new Car("blue", 4, "gasoline");
+$car->setEnergyLevel(50);
+$car->start();
+$car->forward();
+$car->brake();
+var_dump($car);
