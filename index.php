@@ -1,25 +1,19 @@
 <?php
 
-require_once 'bicycle.php';
-$bike = new Bicycle('bleu');
-$bike->currentSpeed = 0;
-var_dump($bike);
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h ' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->currentSpeed . ' km/h' . '<br>';
-echo $bike->brake();
-echo "<br>";
-echo "<br>";
+require_once 'Bicycle.php';
 
-$rockrider = new Bicycle('yellow');
+$bicycle = new Bicycle('blue', 1);
+echo $bicycle->forward();
+var_dump($bicycle);
 
-$tornado = new Bicycle('black');
-$tornado->forward();
+require_once 'Car.php';
 
-$car = new Car("blue", 4, "gasoline");
-$car->setEnergyLevel(50);
-$car->start();
-$car->forward();
-$car->brake();
-var_dump($car);
+$car = new Car('green', 4, 'electric');
+echo $car->forward();
+var_dump(Car::ALLOWED_ENERGIES);
+
+require_once 'Truck.php';
+
+$truck = new Truck('red', 4, 'fuel', 100);
+echo $truck->full();
+var_dump($truck);
