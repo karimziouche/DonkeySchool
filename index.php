@@ -1,14 +1,16 @@
 <?php
 
-require_once 'HighWay.php';
-require_once 'MotorWay.php';
-require_once 'PedestrianWay.php';
-require_once 'ResidentialWay.php';
+require_once 'Car.php';
 
-$motorWay = new MotorWay();
-$pedestrianWay = new PedestrianWay();
-$residentialWay = new ResidentialWay();
+$car = new Car('red', 5, 'fuel');
 
-var_dump($motorWay);
-var_dump($pedestrianWay);
-var_dump($residentialWay);
+try{
+    $car->start();
+} catch (Exception $e) {
+    echo $e->getMessage() ."<br>";
+    $car->setHasParkBrake(false);
+} finally {
+    echo "Ma voiture roule comme un donut";
+}
+
+var_dump($car);
